@@ -71,10 +71,10 @@ window.onload = function () {
         exportEnabled: true,
         fontFamily: "Poppins, serif",
         options: {
-        layout: {
-            padding: 20
-        }
-    },
+            layout: {
+                padding: 20
+            }
+        },
         theme: "light2", // A different theme for a clean look
         title: {
             text: "Precipitation by Year", // Customize the chart title
@@ -117,8 +117,43 @@ window.onload = function () {
         backgroundColor: "#f9f9f9" // Light gray background for the chart
     });
     chart.render();
+
+    // Add a download button for the chart
+    var downloadButton = document.createElement("button");
+    downloadButton.innerHTML = "Download CSV";
+    downloadButton.style.margin = "0px auto 40px auto";
+    downloadButton.style.padding = "5px 10px";
+    downloadButton.style.backgroundColor = "#4CAF50";
+    downloadButton.style.color = "white";
+    downloadButton.style.border = "none";
+    downloadButton.style.borderRadius = "5px";
+    downloadButton.style.cursor = "pointer";
+    downloadButton.onclick = function() {
+        downloadCSV(<?php echo json_encode($finalDataPoints, JSON_NUMERIC_CHECK); ?>);
+    };
+
+    // Append the button below the chart container
+    var container = document.getElementById("chartContainer");
+    container.parentNode.insertBefore(downloadButton, container.nextSibling);
 }
 
+// Function to convert data to CSV and trigger download
+function downloadCSV(dataPoints) {
+    var csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "Year,Precipitation (mm)\n"; // CSV header
+
+    dataPoints.forEach(function(point) {
+        csvContent += point.x + "," + (point.y !== null ? point.y : "N/A") + "\n";
+    });
+
+    var encodedUri = encodeURI(csvContent);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "precipitation_by_year.csv");
+    document.body.appendChild(link); // Required for Firefox
+    link.click(); // Trigger the download
+    document.body.removeChild(link); // Clean up
+}
 </script>
 </head>
 <body>
@@ -141,7 +176,7 @@ window.onload = function () {
 </header>
 </div>
 <!-- The chart will be rendered inside this div -->
-<div id="chartContainer"></div>
+<div id="chartContainer" style="height: 400px; width: 100%; margin-bottom: 30px;"></div>
 <!-- Include the CanvasJS library -->
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <script src="layout/scripts/jquery.min.js"></script>
