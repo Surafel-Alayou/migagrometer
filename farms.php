@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
 <body id="top">
+
 <!--START OF HEADER-->
 <div class="wrapper row1">
 <header id="header" class="hoc clear">
@@ -23,9 +24,10 @@
             <li>
                 <a href="#">Farms <i class="fas fa-chevron-down"></i></a>
                 <ul>
-                    <li><a href="AMSE.php">Elfora</a></li>
-                    <li><a href="pages/full-width.html">Awash</a></li>
-                    <li><a href="pages/sidebar-left.html">Gojam</a></li>
+                    <li><a href="farms/horizon.php">Horizon</a></li>
+                    <li><a href="farms/agriceft.php">Agriceft</a></li>
+                    <li><a href="farms/elfora.php">Elfora</a></li>
+                    <li><a href="farms/jitu.php">Jitu</a></li>
                 </ul>
             </li>
             <?php if (isset($_SESSION['username'])) { ?>
@@ -50,37 +52,66 @@
   <!-- Jobs Start -->
   <div class="container-xxl py-5">
   <div class="center" >
-      <h6 class="heading font-x2">Farm Sites</h6>
+      <h6 class="heading font-x2">Farms</h6>
     </div>
             <div class="container">
 
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
+
                             <div class="job-item p-4 mb-4 tt-0">
                                 <div class="row g-4">
                                     <div class="d-flex align-items-center">
                                         <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/elfora-farm.jpg" alt="">
                                         <div class="text-start ps-4">
-                                            <h5 class="mb-3">Elfora</h5>
+                                            <h5 class="mb-3">Horizon</h5>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer massa lacus, dictum id quam et, fringilla accumsan enim. Nam venenatis est eget arcu pulvinar volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla faucibus purus non nulla imperdiet cursus. In hac habitasse platea dictumst.  </p>
-                                            <a class="btn mr-2 mb-2" href="elfora.php"><i class="fa fa-external-link me-2"></i>More</a>
+                                            <a class="btn mr-2 mb-2" href="farms/horizon.php"><i class="fa fa-external-link me-2"></i>Sites</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="d-flex align-items-center">
                                         <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/coffee-farm.jpg" alt="">
                                         <div class="text-start ps-4">
-                                            <h5 class="mb-3">Awash</h5>
+                                            <h5 class="mb-3">Agriceft</h5>
                                             <p>Nulla facilisi. Curabitur gravida risus nibh, eleifend eleifend sem tincidunt a. Phasellus faucibus felis arcu, vitae facilisis dolor semper sed. Vestibulum sed purus quis sem dignissim congue sed nec lectus. Suspendisse potenti. Maecenas tincidunt, tellus a tincidunt facilisis, sem nisl congue lorem, id accumsan ante lorem ut nibh. </p>
-                                            <a class="btn  mr-2 mb-2" href=""><i class="fa fa-external-link me-2"></i>More</a>
+                                            <a class="btn  mr-2 mb-2" href="farms/agriceft.php"><i class="fa fa-external-link me-2"></i>Sites</a>
                                         </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/elfora-farm.jpg" alt="">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Elfora</h5>
+                                            <p>Nulla facilisi. Curabitur gravida risus nibh, eleifend eleifend sem tincidunt a. Phasellus faucibus felis arcu, vitae facilisis dolor semper sed. Vestibulum sed purus quis sem dignissim congue sed nec lectus. Suspendisse potenti. Maecenas tincidunt, tellus a tincidunt facilisis, sem nisl congue lorem, id accumsan ante lorem ut nibh. </p>
+                                            <a class="btn  mr-2 mb-2" href="farms/elfora.php"><i class="fa fa-external-link me-2"></i>Sites</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/coffee-farm.jpg" alt="">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Jitu</h5>
+                                            <p>Nulla facilisi. Curabitur gravida risus nibh, eleifend eleifend sem tincidunt a. Phasellus faucibus felis arcu, vitae facilisis dolor semper sed. Vestibulum sed purus quis sem dignissim congue sed nec lectus. Suspendisse potenti. Maecenas tincidunt, tellus a tincidunt facilisis, sem nisl congue lorem, id accumsan ante lorem ut nibh. </p>
+                                            <a class="btn  mr-2 mb-2" href="farms/jitu.php"><i class="fa fa-external-link me-2"></i>Sites</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -102,8 +133,7 @@
     <h6 class="heading">Quick Links</h6>
     <ul class="nospace linklist contact btmspace-30">
       <li><i class="fa fa-external-link me-2"></i><a href="farms.php" style="color: white;">Farms</a></li>
-      <li><i class="fa fa-external-link me-2"></i><a href="insert-data.php" style="color: white;">Insert Data</a></li>
-      <li><i class="fa fa-external-link me-2"></i><a href="register.php" style="color: white;">Register</a></li>
+      <li><i class="fa fa-external-link me-2"></i><a href="https://www.midrocinvestmentgroup.com/" style="color: white;">Main Site</a></li>
       </ul>
   </div>
 

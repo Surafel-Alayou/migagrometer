@@ -55,7 +55,7 @@ catch (\PDOException $ex) {
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../../../../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,11 +173,11 @@ function downloadCSV(year, dataPoints, monthNames) {
 <div class="wrapper row1">
 <header id="header" class="hoc clear">
     <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px;"> 
-        <a href="index.php"><img src="images/demo/MIG-Logo2.jpg" alt=""></a>
+        <a href="../../../../../index.php"><img src="../../../../../images/demo/MIG-Logo2.jpg" alt=""></a>
     </div>
     <nav id="mainav" class="fl_right"> 
         <ul class="clear">
-            <li class="active"><a href="index.php">Home</a></li>
+            <li class="active"><a href="../../../../../index.php">Home</a></li>
             <li>
                 <a href="#">Laboratories <i class="fas fa-chevron-down"></i></a>
                 <ul>
@@ -205,8 +205,8 @@ function downloadCSV(year, dataPoints, monthNames) {
 </div>
 <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../../../../../layout/scripts/jquery.min.js"></script>
+<script src="../../../../../layout/scripts/jquery.backtotop.js"></script>
+<script src="../../../../../layout/scripts/jquery.mobilemenu.js"></script>
 </body>
 </html>

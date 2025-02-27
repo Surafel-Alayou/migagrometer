@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
 <body id="top">
@@ -15,29 +15,30 @@
 <div class="wrapper row1">
 <header id="header" class="hoc clear">
     <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px auto;"> 
-        <a href="index.php"><img src="images/demo/MIG-Logo2.jpg" alt=""></a>
+        <a href="../../index.php"><img src="../../images/demo/MIG-Logo2.jpg" alt=""></a>
     </div>
     <nav id="mainav" class="fl_right"> 
         <ul class="clear">
-            <li class="active"><a href="index.php">Home</a></li>
+            <li class="active"><a href="../../index.php">Home</a></li>
             <li>
                 <a href="#">Farms <i class="fas fa-chevron-down"></i></a>
                 <ul>
-                    <li><a href="AMSE.php">Elfora</a></li>
-                    <li><a href="pages/full-width.html">Awash</a></li>
-                    <li><a href="pages/sidebar-left.html">Gojam</a></li>
+                    <li><a href="../horizon.php">Horizon</a></li>
+                    <li><a href="../agriceft.php">Agriceft</a></li>
+                    <li><a href="../elfora.php">Elfora</a></li>
+                    <li><a href="../jitu.php">Jitu</a></li>
                 </ul>
             </li>
             <?php if (isset($_SESSION['username'])) { ?>
             <li>
                 <a><?php echo $_SESSION['username']; ?> <i class="fas fa-chevron-down"></i></a>
                 <ul>
-                    <li><a href="log-out.php">Log Out</a></li>
+                    <li><a href="../../log-out.php">Log Out</a></li>
                 </ul>
             </li>
             <?php } else { ?>
             <li>
-                <a href="log-in.php">Log in</a>
+                <a href="../../log-in.php">Log in</a>
             </li>
             <?php } ?>
         </ul>
@@ -50,57 +51,23 @@
  <!-- Jobs Start -->
  <div class="container-xxl pb-5">
             <div class="container">
-                <h6 class="text-center heading font-x2">Elfora farm sites</h6>
+                <h6 class="text-center heading font-x2">Melga</h6>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <div class="job-item p-4 mb-4">
+                            <div class="sub-sites p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
-                                            <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Bishoftu</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Melga</h5>
+                                            <a href="goma-1/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
                                             <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="job-item p-4 mb-4">
-                                <div class="row g-4">
-                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <div class="text-start">
-                                            <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Holeta</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                        <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="job-item p-4 mb-4">
-                                <div class="row g-4">
-                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <div class="text-start">
-                                            <h5 class="mb-3">Hawassa</h5>
-                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                        <div class="d-flex mb-3">
-                                            <a class="btn btn-primary" href="">Apply Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -123,9 +90,8 @@
   <div class="one_quarter">
     <h6 class="heading">Quick Links</h6>
     <ul class="nospace linklist contact btmspace-30">
-      <li><i class="fa fa-external-link me-2"></i><a href="farms.php" style="color: white;">Farms</a></li>
-      <li><i class="fa fa-external-link me-2"></i><a href="insert-data.php" style="color: white;">Insert Data</a></li>
-      <li><i class="fa fa-external-link me-2"></i><a href="register.php" style="color: white;">Register</a></li>
+      <li><i class="fa fa-external-link me-2"></i><a href="../../farms.php" style="color: white;">Farms</a></li>
+      <li><i class="fa fa-external-link me-2"></i><a href="https://www.midrocinvestmentgroup.com/" style="color: white;">Main Site</a></li>
       </ul>
   </div>
 
@@ -156,8 +122,8 @@
 <!--BACK TO TOP BUTTON-->
 <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../../layout/scripts/jquery.min.js"></script>
+<script src="../../layout/scripts/jquery.backtotop.js"></script>
+<script src="../../layout/scripts/jquery.mobilemenu.js"></script>
 </body>
 </html>

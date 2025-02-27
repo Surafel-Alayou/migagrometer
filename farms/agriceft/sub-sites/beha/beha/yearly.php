@@ -60,7 +60,7 @@ catch (\PDOException $ex) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="../../../../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -160,11 +160,11 @@ function downloadCSV(dataPoints) {
 <div class="wrapper row1">
 <header id="header" class="hoc clear">
     <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px;"> 
-        <a href="index.php"><img src="images/demo/MIG-Logo2.jpg" alt=""></a>
+        <a href="../../../../../index.php"><img src="../../../../../images/demo/MIG-Logo2.jpg" alt=""></a>
     </div>
     <nav id="mainav" class="fl_right"> 
         <ul class="clear">
-            <li class="active"><a href="index.php">Home</a></li>
+            <li class="active"><a href="../../../../../index.php">Home</a></li>
             <li>
                 <a href="#">Laboratories <i class="fas fa-chevron-down"></i></a>
                 <ul>
@@ -179,9 +179,9 @@ function downloadCSV(dataPoints) {
 <div id="chartContainer" style="height: 400px; width: 100%; margin-bottom: 30px;"></div>
 <!-- Include the CanvasJS library -->
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../../../../../layout/scripts/jquery.min.js"></script>
+<script src="../../../../../layout/scripts/jquery.backtotop.js"></script>
+<script src="../../../../../layout/scripts/jquery.mobilemenu.js"></script>
 
 </body>
 </html>

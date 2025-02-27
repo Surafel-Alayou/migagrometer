@@ -99,6 +99,7 @@ $today = date("Y-m-d");
     </style>
 </head>
 <body>
+<!--START OF HEADER-->
 <div class="wrapper row1">
 <header id="header" class="hoc clear">
     <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px auto;"> 
@@ -108,14 +109,12 @@ $today = date("Y-m-d");
         <ul class="clear">
             <li class="active"><a href="index.php">Home</a></li>
             <li>
-                <a href="#">Laboratories <i class="fas fa-chevron-down"></i></a>
+                <a href="#">Farms <i class="fas fa-chevron-down"></i></a>
                 <ul>
-                    <li><a href="AMSE.php">Advanced materials and solar energy</a></li>
-                    <li><a href="pages/full-width.html">Full Width</a></li>
-                    <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
-                    <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
-                    <li><a href="pages/basic-grid.html">Basic Grid</a></li>
-                    <li><a href="pages/font-icons.html">Font Icons</a></li>
+                    <li><a href="farms/horizon.php">Horizon</a></li>
+                    <li><a href="farms/agriceft.php">Agriceft</a></li>
+                    <li><a href="farms/elfora.php">Elfora</a></li>
+                    <li><a href="farms/jitu.php">Jitu</a></li>
                 </ul>
             </li>
             <?php if (isset($_SESSION['username'])) { ?>
@@ -133,7 +132,10 @@ $today = date("Y-m-d");
         </ul>
     </nav>
 </header>
+
 </div>
+<!--END OF HEADER-->
+
 
 <div class="wrapper row3">
     <main class="hoc container clear">
@@ -189,8 +191,7 @@ $today = date("Y-m-d");
     <h6 class="heading">Quick Links</h6>
     <ul class="nospace linklist contact btmspace-30">
       <li><i class="fa fa-external-link me-2"></i><a href="farms.php" style="color: white;">Farms</a></li>
-      <li><i class="fa fa-external-link me-2"></i><a href="insert-data.php" style="color: white;">Insert Data</a></li>
-      <li><i class="fa fa-external-link me-2"></i><a href="register.php" style="color: white;">Register</a></li>
+      <li><i class="fa fa-external-link me-2"></i><a href="https://www.midrocinvestmentgroup.com/" style="color: white;">Main Site</a></li>
       </ul>
   </div>
 

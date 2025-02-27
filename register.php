@@ -13,8 +13,9 @@
 
 </head>
 <body id="top">
-  <div class="wrapper row1">
-  <header id="header" class="hoc clear">
+  <!--START OF HEADER-->
+<div class="wrapper row1">
+<header id="header" class="hoc clear">
     <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px auto;"> 
         <a href="index.php"><img src="images/demo/MIG-Logo2.jpg" alt=""></a>
     </div>
@@ -22,14 +23,12 @@
         <ul class="clear">
             <li class="active"><a href="index.php">Home</a></li>
             <li>
-                <a href="#">Laboratories <i class="fas fa-chevron-down"></i></a>
+                <a href="#">Farms <i class="fas fa-chevron-down"></i></a>
                 <ul>
-                    <li><a href="AMSE.php">Advanced materials and solar energy</a></li>
-                    <li><a href="pages/full-width.html">Full Width</a></li>
-                    <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
-                    <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
-                    <li><a href="pages/basic-grid.html">Basic Grid</a></li>
-                    <li><a href="pages/font-icons.html">Font Icons</a></li>
+                    <li><a href="farms/horizon.php">Horizon</a></li>
+                    <li><a href="farms/agriceft.php">Agriceft</a></li>
+                    <li><a href="farms/elfora.php">Elfora</a></li>
+                    <li><a href="farms/jitu.php">Jitu</a></li>
                 </ul>
             </li>
             <?php if (isset($_SESSION['username'])) { ?>
@@ -40,40 +39,44 @@
                 </ul>
             </li>
             <?php } else { ?>
-
+            <li>
+                <a href="log-in.php">Log in</a>
+            </li>
             <?php } ?>
         </ul>
     </nav>
 </header>
-  </div>
+
+</div>
+<!--END OF HEADER-->
+
 
   <div class="wrapper row3">
     <section class="hoc container clear">
-     <?php
-     require_once("php/Connection.php");
-     if(isset($_POST['submit'])){
-      $user_name=$_POST['username'];
-      $phone_number=$_POST['phonenumber'];
-      $email=$_POST['email'];
-      $password=$_POST['password'];
-      if($user_name!=""  or $phone_number!="" or $email!="" or $password!=""){
+    <?php
+require_once("php/Connection.php");
 
-        $sql="INSERT INTO Registered (ID,User_name,Phone_number,Email,Password)  VALUES ('', '".$user_name."','".$phone_number."','".$email."','".$password."') ";
-        if(mysqli_query($connection,$sql)){
-          header("location:log-in.php");
+if (isset($_POST['submit'])) {
+    $user_name = $_POST['username'];
+    $phone_number = $_POST['phonenumber'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-        }else{
+    if ($user_name != "" || $phone_number != "" || $email != "" || $password != "") {
+        // Remove the ID column from the SQL query
+        $sql = "INSERT INTO Registered (User_name, Phone_number, Email, Password) 
+                VALUES ('".$user_name."', '".$phone_number."', '".$email."', '".$password."')";
 
-          echo "";
+        if (mysqli_query($connection, $sql)) {
+            header("location:log-in.php");
+        } else {
+            echo "Error: " . mysqli_error($connection);
         }
-
-      }else{
+    } else {
         echo "Please fill all the fields";
-      }
-
     }
-
-    ?> 
+}
+?>
     <form action="#" method="post">
       <div class="one_third first">
         <label>User name</label>
@@ -107,8 +110,7 @@
     <h6 class="heading">Quick Links</h6>
     <ul class="nospace linklist contact btmspace-30">
       <li><i class="fa fa-external-link me-2"></i><a href="farms.php" style="color: white;">Farms</a></li>
-      <li><i class="fa fa-external-link me-2"></i><a href="insert-data.php" style="color: white;">Insert Data</a></li>
-      <li><i class="fa fa-external-link me-2"></i><a href="register.php" style="color: white;">Register</a></li>
+      <li><i class="fa fa-external-link me-2"></i><a href="https://www.midrocinvestmentgroup.com/" style="color: white;">Main Site</a></li>
       </ul>
   </div>
 
