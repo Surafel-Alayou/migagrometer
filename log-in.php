@@ -81,7 +81,7 @@
             </div>
           <?php } ?>
           
-          <p><a href="register.php">Don't have an account?</a></p>
+          <p><a href="admin-log-in.php">Log as admin</a></p>
         </div>
       </form>
     </section>

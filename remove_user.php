@@ -85,19 +85,8 @@
         }
         ?>
 
-        <!-- Table Selection -->
-        <form method="GET">
-            <label for="table">Select Table:</label>
-            <select name="table" id="table">
-                <option value="registered" <?= $table === 'registered' ? 'selected' : '' ?>>Registered</option>
-                <option value="awash_users" <?= $table === 'awash_users' ? 'selected' : '' ?>>Awash Users</option>
-                <option value="gojjam_users" <?= $table === 'gojjam_users' ? 'selected' : '' ?>>Gojjam Users</option>
-            </select>
-            <button type="submit">Load Table</button>
-        </form>
-
        <!-- User List -->
-<h2>Users in <?= ucfirst(str_replace('_', ' ', $table)) ?></h2>
+<h2>Existing Users</h2>
 <div class="table-responsive"> <!-- Add this div to make the table responsive -->
     <table> <!-- Add Bootstrap table classes -->
         <thead>
@@ -105,7 +94,7 @@
                 <th>User Name</th>
                 <th>Phone Number</th>
                 <th>Password</th>
-                <th>Email</th>
+                <th>Allowed Farm</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -115,7 +104,7 @@
                 <td><?= $user['User_name'] ?></td>
                 <td><?= $user['Phone_number'] ?></td>
                 <td><?= $user['Password'] ?></td>
-                <td><?= $user['Email'] ?></td>
+                <td><?= $user['Allowed_farm'] ?></td>
                 <td>
                     <form method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to remove this user?');">
                         <input type="hidden" name="table" value="<?= $table ?>">
@@ -179,12 +168,12 @@
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
 <script>
-    function openUpdateForm(user_name, phone_number, password, email) {
+    function openUpdateForm(user_name, phone_number, password, allowed_farm) {
         document.getElementById('updateForm').style.display = 'block';
         document.getElementById('update_user_name').value = user_name;
         document.getElementById('update_phone_number').value = phone_number;
         document.getElementById('update_password').value = password;
-        document.getElementById('update_email').value = email;
+        document.getElementById('update_allowed_farm').value = allowed_farm;
     }
 </script>
 

@@ -52,7 +52,7 @@
   <!-- Jobs Start -->
   <div class="container-xxl py-5">
   <div class="center" >
-      <h6 class="heading font-x2">Register user</h6>
+      <h6 class="heading font-x2">Promote an admin</h6>
     </div>
             <div class="container">
             <?php
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Fetch users from the selected table
-$table = $_GET['table'] ?? 'registered'; // Default table
+$table = $_GET['table'] ?? 'admins'; // Default table
 $sql = "SELECT * FROM $table";
 $result = $connection->query($sql);
 $users = [];
@@ -91,7 +91,7 @@ if ($result) {
 ?>
 
     <!-- User List -->
-    <h2>Existing Users</h2>
+    <h2>Existing admins</h2>
     <div class="table-responsive">
     <table border="1">
         <tr>
@@ -112,7 +112,7 @@ if ($result) {
         </div>
 
     <!-- Register User Form -->
-    <h2>Register New User</h2>
+    <h2>Promote New Admin</h2>
     <form method="POST">
         <input type="hidden" name="table" value="<?= $table ?>">
         <label for="user_name">User Name:</label>
@@ -122,52 +122,7 @@ if ($result) {
         <label for="password">Password:</label>
         <input type="password" name="password" required><br>
         <label for="allowed_farm">Allowed Farm:</label>
-                        <select name="allowed_farm" required>
-                        <option value="agriceft_beha">Agriceft-Beha</option>
-    <option value="agriceft_duyina_unit_01">Agriceft-Duyina-Unit-01</option>
-    <option value="agriceft_duyina_unit_02">Agriceft-Duyina-Unit-02</option>
-    <option value="agriceft_duyina_unit_03">Agriceft-Duyina-Unit-03</option>
-    <option value="agriceft_duyina_unit_04">Agriceft-Duyina-Unit-04</option>
-    <option value="agriceft_gumadero_unit_01">Agriceft-Gumadero-Unit-01</option>
-    <option value="agriceft_gumadero_unit_02">Agriceft-Gumadero-Unit-02</option>
-    <option value="agriceft_gumadero_unit_03">Agriceft-Gumadero-Unit-03</option>
-    <option value="agriceft_gumadero_unit_04">Agriceft-Gumadero-Unit-04</option>
-    <option value="agriceft_gumero_unit_01">Agriceft-Gumero-Unit-01</option>
-    <option value="agriceft_gumero_unit_02">Agriceft-Gumero-Unit-02</option>
-    <option value="agriceft_gumero_unit_03">Agriceft-Gumero-Unit-03</option>
-    <option value="agriceft_wush_wush_unit_01">Agriceft-Wush-Wush-Unit-01</option>
-    <option value="agriceft_wush_wush_unit_02">Agriceft-Wush-Wush-Unit-02</option>
-    <option value="agriceft_wush_wush_unit_03">Agriceft-Wush-Wush-Unit-03</option>
-    <option value="elfora_chefa">Elfora-Chefa</option>
-    <option value="elfora_melga">Elfora-Melga</option>
-    <option value="elfora_shallo_av">Elfora-Shallo-AV</option>
-    <option value="elfora_shallo_unit_1">Elfora-Shallo-Unit-1</option>
-    <option value="elfora_shallo_unit_2">Elfora-Shallo-Unit-2</option>
-    <option value="elfora_shallo_unit_3">Elfora-Shallo-Unit-3</option>
-    <option value="elfora_shallo_unit_4">Elfora-Shallo-Unit-4</option>
-    <option value="horizon_bebeka_farm_01">Horizon-Bebeka-Farm-01</option>
-    <option value="horizon_bebeka_farm_02">Horizon-Bebeka-Farm-02</option>
-    <option value="horizon_bebeka_farm_03">Horizon-Bebeka-Farm-03</option>
-    <option value="horizon_bebeka_farm_04">Horizon-Bebeka-Farm-04</option>
-    <option value="horizon_bebeka_farm_05">Horizon-Bebeka-Farm-05</option>
-    <option value="horizon_cheleleki">Horizon-Cheleleki</option>
-    <option value="horizon_gojeb">Horizon-Gojeb</option>
-    <option value="horizon_goma_1_05">Horizon-Goma-1-05</option>
-    <option value="horizon_goma_1_mo">Horizon-Goma-1-MO</option>
-    <option value="horizon_goma_2">Horizon-Goma-2</option>
-    <option value="horizon_gumer">Horizon-Gumer</option>
-    <option value="horizon_kossa_algie">Horizon-Kossa-Algie</option>
-    <option value="horizon_kossa_dembi">Horizon-Kossa-Dembi</option>
-    <option value="horizon_kossa_gurumu">Horizon-Kossa-Gurumu</option>
-    <option value="horizon_kossa_office">Horizon-Kossa-Office</option>
-    <option value="horizon_sentu_central">Horizon-Sentu-Central</option>
-    <option value="horizon_sentu_gijeb">Horizon-Sentu-Gijeb</option>
-    <option value="horizon_sentu_tenebo">Horizon-Sentu-Tenebo</option>
-    <option value="jitu_bishoftu">Jitu-Bishoftu</option>
-    <option value="jitu_holeta">Jitu-Holeta</option>
-    <option value="jitu_koka">Jitu-Koka</option>
-    <option value="jitu_tkurwuha">Jitu-Tkurwuha</option>
-                        </select>
+        <input type="text" name="allowed_farm" required value="All" readonly placeholder="All"><br>         
         <button class="btn btn-primary" type="submit" name="register">Register</button>
     </form>
  

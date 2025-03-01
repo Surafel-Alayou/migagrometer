@@ -1,18 +1,16 @@
- <?php session_start();
- ?>
- <!DOCTYPE html>
-<html lang="">
+<!DOCTYPE html>
+<html lang="en-US">
 <head>
-  <title>agrometclub</title>
+  <title>Log in</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body id="top">
 
-<!--START OF HEADER-->
+  <!--START OF HEADER-->
 <div class="wrapper row1">
 <header id="header" class="hoc clear">
     <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px auto;"> 
@@ -38,9 +36,6 @@
                 </ul>
             </li>
             <?php } else { ?>
-            <li>
-                <a href="log-in.php">Log in</a>
-            </li>
             <?php } ?>
         </ul>
     </nav>
@@ -49,22 +44,49 @@
 </div>
 <!--END OF HEADER-->
 
-  <!-- Jobs Start -->
-  <div class="container-xxl py-5">
-  <div class="center" >
-      <h6 class="heading font-x2">Admin Page</h6>
-    </div>
-        <div class="container">
-            <a href="register_user.php"><i class="fa fa-external-link me-2"></i> Register new user</a><br>
-            <a href="remove_user.php"><i class="fa fa-external-link me-2"></i> Remove user</a><br>
-            <a href="update_user.php"><i class="fa fa-external-link me-2"></i> Update existing user details</a><br>
-            <a href="promote_admin.php"><i class="fa fa-external-link me-2"></i> Promote an admin</a>
-        </div>
+
+  <div class="wrapper row3">
+    <section class="hoc container clear">
+      <?php 
+      session_start();
+      require_once("php/Connection.php");
+      $errorMessage = "";
+
+      if (isset($_POST['submit'])) {
+        $user_name = $_POST['username'];
+        $password = $_POST['password'];
+        $sql = 'SELECT * FROM Admins WHERE User_name="' . $user_name . '" AND Password="' . $password . '"';
+        $registered = mysqli_query($connection, $sql);
+
+        if (mysqli_num_rows($registered) > 0) {
+          $_SESSION['username'] = $user_name;
+          header("location:admin.php");  // Redirect to admin.php
+          exit();
+        } else {
+          $errorMessage = "Incorrect username or password.";
+        }
+      }
+      ?> 
+      <form action="#" method="post">
+        <div class="one_third first">
+          <label for="username">User name </label>
+          <input type="text" name="username" id="name" value="" size="22" required>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="email" value="" size="22" required>
+          <input class="btn  mt-3 mb-2" type="submit" name="submit" value="Log as admin" style="padding: 7px;">
+          
+          <?php if (!empty($errorMessage)) { ?>
+            <div class="alert alert-danger mt-3" role="alert">
+              <?php echo $errorMessage; ?>
             </div>
-        <!-- Jobs End -->
+          <?php } ?>
+          
+        </div>
+      </form>
+    </section>
+  </div>
 
-
-<!--PAGE FOOTER START-->
+ <!--PAGE FOOTER START-->
 <div class="wrapper row4">
   <footer id="footer" class="hoc clear"> 
     <div class="one_quarter first">
@@ -104,21 +126,10 @@
 </div>
 <!--PAGE FOOTER END-->
 
-<!--BACK TO TOP BUTTON-->
-<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
-<!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
-<script>
-        function openUpdateForm(user_name, phone_number, password, email) {
-            document.getElementById('updateForm').style.display = 'block';
-            document.getElementById('update_user_name').value = user_name;
-            document.getElementById('update_phone_number').value = phone_number;
-            document.getElementById('update_password').value = password;
-            document.getElementById('update_email').value = email;
-        }
-    </script>
-
+  <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+  <!-- JAVASCRIPTS -->
+  <script src="layout/scripts/jquery.min.js"></script>
+  <script src="layout/scripts/jquery.backtotop.js"></script>
+  <script src="layout/scripts/jquery.mobilemenu.js"></script>
 </body>
 </html>

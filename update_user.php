@@ -69,11 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_name = $_POST['user_name'];
         $phone_number = $_POST['phone_number'];
         $password = $_POST['password'];
-        $email = $_POST['email'];
+        $allowed_farm = $_POST['allowed_farm'];
 
-        $sql = "UPDATE $table SET Phone_number = ?, Password = ?, Email = ? WHERE User_name = ?";
+        $sql = "UPDATE $table SET Phone_number = ?, Password = ?, Allowed_farm = ? WHERE User_name = ?";
         $stmt = $connection->prepare($sql);
-        $stmt->bind_param("ssss", $phone_number, $password, $email, $user_name);
+        $stmt->bind_param("ssss", $phone_number, $password, $allowed_farm, $user_name);
         $stmt->execute();
         $stmt->close();
     }
@@ -92,28 +92,15 @@ if ($result) {
 }
 ?>
 
-
-
-    <!-- Table Selection -->
-    <form method="GET">
-        <label for="table">Select Table:</label>
-        <select name="table" id="table">
-            <option value="registered" <?= $table === 'registered' ? 'selected' : '' ?>>Registered</option>
-            <option value="awash_users" <?= $table === 'awash_users' ? 'selected' : '' ?>>Awash Users</option>
-            <option value="gojjam_users" <?= $table === 'gojjam_users' ? 'selected' : '' ?>>Gojjam Users</option>
-        </select>
-        <button type="submit">Load Table</button>
-    </form>
-
     <!-- User List -->
-    <h2>Users in <?= ucfirst(str_replace('_', ' ', $table)) ?></h2>
+    <h2>Existing Users</h2>
     <div class="table-responsive">
     <table border="1">
         <tr>
             <th>User Name</th>
             <th>Phone Number</th>
             <th>Password</th>
-            <th>Email</th>
+            <th>Allowed Farm</th>
             <th>Action</th>
         </tr>
         <?php foreach ($users as $user): ?>
@@ -121,13 +108,13 @@ if ($result) {
             <td><?= $user['User_name'] ?></td>
             <td><?= $user['Phone_number'] ?></td>
             <td><?= $user['Password'] ?></td>
-            <td><?= $user['Email'] ?></td>
+            <td><?= $user['Allowed_farm'] ?></td>
             <td>
                 <form method="POST" style="display:inline;">
                     <input type="hidden" name="table" value="<?= $table ?>">
                     <input type="hidden" name="user_name" value="<?= $user['User_name'] ?>">
                 </form>
-                <button class="btn btn-primary" style="background-color: #007bff;" onclick="openUpdateForm('<?= $user['User_name'] ?>', '<?= $user['Phone_number'] ?>', '<?= $user['Password'] ?>', '<?= $user['Email'] ?>')">Update</button>
+                <button class="btn btn-primary" style="background-color: #007bff;" onclick="openUpdateForm('<?= $user['User_name'] ?>', '<?= $user['Phone_number'] ?>', '<?= $user['Password'] ?>', '<?= $user['Allowed_farm'] ?>')">Update</button>
             </td>
         </tr>
         <?php endforeach; ?>
@@ -144,8 +131,53 @@ if ($result) {
         <input type="text" name="phone_number" id="update_phone_number" required><br>
         <label for="update_password">Password:</label>
         <input type="password" name="password" id="update_password" required><br>
-        <label for="update_email">Email:</label>
-        <input type="email" name="email" id="update_email" required><br>
+        <label for="allowed_farm">Allowed Farm:</label>
+                        <select name="allowed_farm" id="update_allowed_farm" required>
+                        <option value="agriceft_beha">Agriceft-Beha</option>
+    <option value="agriceft_duyina_unit_01">Agriceft-Duyina-Unit-01</option>
+    <option value="agriceft_duyina_unit_02">Agriceft-Duyina-Unit-02</option>
+    <option value="agriceft_duyina_unit_03">Agriceft-Duyina-Unit-03</option>
+    <option value="agriceft_duyina_unit_04">Agriceft-Duyina-Unit-04</option>
+    <option value="agriceft_gumadero_unit_01">Agriceft-Gumadero-Unit-01</option>
+    <option value="agriceft_gumadero_unit_02">Agriceft-Gumadero-Unit-02</option>
+    <option value="agriceft_gumadero_unit_03">Agriceft-Gumadero-Unit-03</option>
+    <option value="agriceft_gumadero_unit_04">Agriceft-Gumadero-Unit-04</option>
+    <option value="agriceft_gumero_unit_01">Agriceft-Gumero-Unit-01</option>
+    <option value="agriceft_gumero_unit_02">Agriceft-Gumero-Unit-02</option>
+    <option value="agriceft_gumero_unit_03">Agriceft-Gumero-Unit-03</option>
+    <option value="agriceft_wush_wush_unit_01">Agriceft-Wush-Wush-Unit-01</option>
+    <option value="agriceft_wush_wush_unit_02">Agriceft-Wush-Wush-Unit-02</option>
+    <option value="agriceft_wush_wush_unit_03">Agriceft-Wush-Wush-Unit-03</option>
+    <option value="elfora_chefa">Elfora-Chefa</option>
+    <option value="elfora_melga">Elfora-Melga</option>
+    <option value="elfora_shallo_av">Elfora-Shallo-AV</option>
+    <option value="elfora_shallo_unit_1">Elfora-Shallo-Unit-1</option>
+    <option value="elfora_shallo_unit_2">Elfora-Shallo-Unit-2</option>
+    <option value="elfora_shallo_unit_3">Elfora-Shallo-Unit-3</option>
+    <option value="elfora_shallo_unit_4">Elfora-Shallo-Unit-4</option>
+    <option value="horizon_bebeka_farm_01">Horizon-Bebeka-Farm-01</option>
+    <option value="horizon_bebeka_farm_02">Horizon-Bebeka-Farm-02</option>
+    <option value="horizon_bebeka_farm_03">Horizon-Bebeka-Farm-03</option>
+    <option value="horizon_bebeka_farm_04">Horizon-Bebeka-Farm-04</option>
+    <option value="horizon_bebeka_farm_05">Horizon-Bebeka-Farm-05</option>
+    <option value="horizon_cheleleki">Horizon-Cheleleki</option>
+    <option value="horizon_gojeb">Horizon-Gojeb</option>
+    <option value="horizon_goma_1_05">Horizon-Goma-1-05</option>
+    <option value="horizon_goma_1_mo">Horizon-Goma-1-MO</option>
+    <option value="horizon_goma_2">Horizon-Goma-2</option>
+    <option value="horizon_gumer">Horizon-Gumer</option>
+    <option value="horizon_kossa_algie">Horizon-Kossa-Algie</option>
+    <option value="horizon_kossa_dembi">Horizon-Kossa-Dembi</option>
+    <option value="horizon_kossa_gurumu">Horizon-Kossa-Gurumu</option>
+    <option value="horizon_kossa_office">Horizon-Kossa-Office</option>
+    <option value="horizon_sentu_central">Horizon-Sentu-Central</option>
+    <option value="horizon_sentu_gijeb">Horizon-Sentu-Gijeb</option>
+    <option value="horizon_sentu_tenebo">Horizon-Sentu-Tenebo</option>
+    <option value="jitu_bishoftu">Jitu-Bishoftu</option>
+    <option value="jitu_holeta">Jitu-Holeta</option>
+    <option value="jitu_koka">Jitu-Koka</option>
+    <option value="jitu_tkurwuha">Jitu-Tkurwuha</option>
+                        </select>
         <button class="btn btn-primary" type="submit" name="update">Update</button>
     </form>
 
@@ -202,12 +234,12 @@ if ($result) {
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
 <script>
-        function openUpdateForm(user_name, phone_number, password, email) {
+        function openUpdateForm(user_name, phone_number, password, allowed_farm) {
             document.getElementById('updateForm').style.display = 'block';
             document.getElementById('update_user_name').value = user_name;
             document.getElementById('update_phone_number').value = phone_number;
             document.getElementById('update_password').value = password;
-            document.getElementById('update_email').value = email;
+            document.getElementById('update_allowed_farm').value = allowed_farm;
         }
     </script>
 
