@@ -1,15 +1,14 @@
- <?php session_start();
- ?>
- <!DOCTYPE html>
+<?php session_start(); ?>
+<!DOCTYPE html>
 <html lang="">
 <head>
   <title>agrometclub</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body id="top">
 
 <!--START OF HEADER-->
@@ -45,23 +44,93 @@
         </ul>
     </nav>
 </header>
-
 </div>
 <!--END OF HEADER-->
 
-  <!-- Jobs Start -->
-  <div class="container-xxl py-5">
-  <div class="center" >
-      <h6 class="heading font-x2">Admin Page</h6>
+<!-- Jobs Start -->
+<div class="container-xxl py-5">
+  <div class="center">
+      <h6 class="heading font-x2">Remove user</h6>
     </div>
-        <div class="container">
-            <a href="register_user.php"><i class="fa fa-external-link me-2"></i> Register new user</a><br>
-            <a href="remove_user.php"><i class="fa fa-external-link me-2"></i> Remove user</a><br>
-            <a href="update_user.php"><i class="fa fa-external-link me-2"></i> Update existing user details</a>
-        </div>
-            </div>
-        <!-- Jobs End -->
+    <div class="container">
+        <?php
+        // Include the database connection file
+        include("php/Connection.php");
 
+        // Handle form submissions
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['remove'])) {
+                // Remove a user
+                $table = $_POST['table'];
+                $user_name = $_POST['user_name'];
+
+                $sql = "DELETE FROM $table WHERE User_name = ?";
+                $stmt = $connection->prepare($sql);
+                $stmt->bind_param("s", $user_name);
+                $stmt->execute();
+                $stmt->close();
+            }
+        }
+
+        // Fetch users from the selected table
+        $table = $_GET['table'] ?? 'registered'; // Default table
+        $sql = "SELECT * FROM $table";
+        $result = $connection->query($sql);
+        $users = [];
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $users[] = $row;
+            }
+            $result->free();
+        }
+        ?>
+
+        <!-- Table Selection -->
+        <form method="GET">
+            <label for="table">Select Table:</label>
+            <select name="table" id="table">
+                <option value="registered" <?= $table === 'registered' ? 'selected' : '' ?>>Registered</option>
+                <option value="awash_users" <?= $table === 'awash_users' ? 'selected' : '' ?>>Awash Users</option>
+                <option value="gojjam_users" <?= $table === 'gojjam_users' ? 'selected' : '' ?>>Gojjam Users</option>
+            </select>
+            <button type="submit">Load Table</button>
+        </form>
+
+       <!-- User List -->
+<h2>Users in <?= ucfirst(str_replace('_', ' ', $table)) ?></h2>
+<div class="table-responsive"> <!-- Add this div to make the table responsive -->
+    <table> <!-- Add Bootstrap table classes -->
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Phone Number</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user): ?>
+            <tr>
+                <td><?= $user['User_name'] ?></td>
+                <td><?= $user['Phone_number'] ?></td>
+                <td><?= $user['Password'] ?></td>
+                <td><?= $user['Email'] ?></td>
+                <td>
+                    <form method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to remove this user?');">
+                        <input type="hidden" name="table" value="<?= $table ?>">
+                        <input type="hidden" name="user_name" value="<?= $user['User_name'] ?>">
+                        <button class="btn btn-primary" style="background-color:rgb(235, 78, 67);" type="submit" name="remove">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+    </div>
+</div>
+<!-- Jobs End -->
 
 <!--PAGE FOOTER START-->
 <div class="wrapper row4">
@@ -110,14 +179,14 @@
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
 <script>
-        function openUpdateForm(user_name, phone_number, password, email) {
-            document.getElementById('updateForm').style.display = 'block';
-            document.getElementById('update_user_name').value = user_name;
-            document.getElementById('update_phone_number').value = phone_number;
-            document.getElementById('update_password').value = password;
-            document.getElementById('update_email').value = email;
-        }
-    </script>
+    function openUpdateForm(user_name, phone_number, password, email) {
+        document.getElementById('updateForm').style.display = 'block';
+        document.getElementById('update_user_name').value = user_name;
+        document.getElementById('update_phone_number').value = phone_number;
+        document.getElementById('update_password').value = password;
+        document.getElementById('update_email').value = email;
+    }
+</script>
 
 </body>
 </html>

@@ -18,7 +18,7 @@ try {
     // SQL query to sum precipitation per month of each year, ordered by year in descending order
     $handle = $link->prepare('
         SELECT YEAR(Record_date) AS year, MONTH(Record_date) AS month, SUM(Precipitation) AS totalPrecipitation 
-        FROM agriceft_beha 
+        FROM horizon_bebeka_farm_03 
         GROUP BY YEAR(Record_date), MONTH(Record_date) 
         ORDER BY YEAR(Record_date) DESC, MONTH(Record_date) ASC
     ');

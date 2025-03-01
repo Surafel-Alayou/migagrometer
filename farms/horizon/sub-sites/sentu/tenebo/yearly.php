@@ -16,7 +16,7 @@ try {
     );
 
     // SQL query to sum precipitation per year
-    $handle = $link->prepare('SELECT YEAR(Record_date) AS year, SUM(Precipitation) AS totalPrecipitation FROM agriceft_beha GROUP BY YEAR(Record_date) ORDER BY YEAR(Record_date)');
+    $handle = $link->prepare('SELECT YEAR(Record_date) AS year, SUM(Precipitation) AS totalPrecipitation FROM horizon_sentu_tenebo GROUP BY YEAR(Record_date) ORDER BY YEAR(Record_date)');
     $handle->execute();
     $result = $handle->fetchAll(\PDO::FETCH_OBJ);
         

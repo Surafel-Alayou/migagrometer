@@ -1,4 +1,4 @@
- <?php session_start();
+<?php session_start();
  ?>
  <!DOCTYPE html>
 <html lang="">
@@ -52,14 +52,106 @@
   <!-- Jobs Start -->
   <div class="container-xxl py-5">
   <div class="center" >
-      <h6 class="heading font-x2">Admin Page</h6>
+      <h6 class="heading font-x2">Update user</h6>
     </div>
-        <div class="container">
-            <a href="register_user.php"><i class="fa fa-external-link me-2"></i> Register new user</a><br>
-            <a href="remove_user.php"><i class="fa fa-external-link me-2"></i> Remove user</a><br>
-            <a href="update_user.php"><i class="fa fa-external-link me-2"></i> Update existing user details</a>
+            <div class="container">
+            <?php
+// Include the database connection file
+include("php/Connection.php");
+
+// Handle form submissions
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['update'])) {
+     
+  
+        // Update user details
+        $table = $_POST['table'];
+        $user_name = $_POST['user_name'];
+        $phone_number = $_POST['phone_number'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+
+        $sql = "UPDATE $table SET Phone_number = ?, Password = ?, Email = ? WHERE User_name = ?";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("ssss", $phone_number, $password, $email, $user_name);
+        $stmt->execute();
+        $stmt->close();
+    }
+}
+
+// Fetch users from the selected table
+$table = $_GET['table'] ?? 'registered'; // Default table
+$sql = "SELECT * FROM $table";
+$result = $connection->query($sql);
+$users = [];
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $users[] = $row;
+    }
+    $result->free();
+}
+?>
+
+
+
+    <!-- Table Selection -->
+    <form method="GET">
+        <label for="table">Select Table:</label>
+        <select name="table" id="table">
+            <option value="registered" <?= $table === 'registered' ? 'selected' : '' ?>>Registered</option>
+            <option value="awash_users" <?= $table === 'awash_users' ? 'selected' : '' ?>>Awash Users</option>
+            <option value="gojjam_users" <?= $table === 'gojjam_users' ? 'selected' : '' ?>>Gojjam Users</option>
+        </select>
+        <button type="submit">Load Table</button>
+    </form>
+
+    <!-- User List -->
+    <h2>Users in <?= ucfirst(str_replace('_', ' ', $table)) ?></h2>
+    <div class="table-responsive">
+    <table border="1">
+        <tr>
+            <th>User Name</th>
+            <th>Phone Number</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <?php foreach ($users as $user): ?>
+        <tr>
+            <td><?= $user['User_name'] ?></td>
+            <td><?= $user['Phone_number'] ?></td>
+            <td><?= $user['Password'] ?></td>
+            <td><?= $user['Email'] ?></td>
+            <td>
+                <form method="POST" style="display:inline;">
+                    <input type="hidden" name="table" value="<?= $table ?>">
+                    <input type="hidden" name="user_name" value="<?= $user['User_name'] ?>">
+                </form>
+                <button class="btn btn-primary" style="background-color: #007bff;" onclick="openUpdateForm('<?= $user['User_name'] ?>', '<?= $user['Phone_number'] ?>', '<?= $user['Password'] ?>', '<?= $user['Email'] ?>')">Update</button>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
         </div>
+
+
+    <!-- Update User Form (Hidden by Default) -->
+    <h2>Update User</h2>
+    <form method="POST" id="updateForm" style="display:none;">
+        <input type="hidden" name="table" value="<?= $table ?>">
+        <input type="hidden" name="user_name" id="update_user_name">
+        <label for="update_phone_number">Phone Number:</label>
+        <input type="text" name="phone_number" id="update_phone_number" required><br>
+        <label for="update_password">Password:</label>
+        <input type="password" name="password" id="update_password" required><br>
+        <label for="update_email">Email:</label>
+        <input type="email" name="email" id="update_email" required><br>
+        <button class="btn btn-primary" type="submit" name="update">Update</button>
+    </form>
+
+ 
             </div>
+        </div>
         <!-- Jobs End -->
 
 

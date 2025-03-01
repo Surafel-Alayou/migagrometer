@@ -1,4 +1,4 @@
- <?php session_start();
+<?php session_start();
  ?>
  <!DOCTYPE html>
 <html lang="">
@@ -52,14 +52,110 @@
   <!-- Jobs Start -->
   <div class="container-xxl py-5">
   <div class="center" >
-      <h6 class="heading font-x2">Admin Page</h6>
+      <h6 class="heading font-x2">Register user</h6>
     </div>
-        <div class="container">
-            <a href="register_user.php"><i class="fa fa-external-link me-2"></i> Register new user</a><br>
-            <a href="remove_user.php"><i class="fa fa-external-link me-2"></i> Remove user</a><br>
-            <a href="update_user.php"><i class="fa fa-external-link me-2"></i> Update existing user details</a>
+            <div class="container">
+            <?php
+// Include the database connection file
+include("php/Connection.php");
+
+// Handle form submissions
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['register'])) {
+        // Register a new user
+        $table = $_POST['table'];
+        $user_name = $_POST['user_name'];
+        $phone_number = $_POST['phone_number'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+
+        $sql = "INSERT INTO $table (User_name, Phone_number, Password, Email) VALUES (?, ?, ?, ?)";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("ssss", $user_name, $phone_number, $password, $email);
+        $stmt->execute();
+        $stmt->close();
+    }
+}
+
+// Fetch users from the selected table
+$table = $_GET['table'] ?? 'registered'; // Default table
+$sql = "SELECT * FROM $table";
+$result = $connection->query($sql);
+$users = [];
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $users[] = $row;
+    }
+    $result->free();
+}
+?>
+
+
+    <!-- Table Selection -->
+    <form method="GET">
+        <label for="table">Select Table:</label>
+        <select name="table" id="table">
+            <option value="registered" <?= $table === 'registered' ? 'selected' : '' ?>>Registered</option>
+            <option value="awash_users" <?= $table === 'awash_users' ? 'selected' : '' ?>>Awash Users</option>
+            <option value="gojjam_users" <?= $table === 'gojjam_users' ? 'selected' : '' ?>>Gojjam Users</option>
+        </select>
+        <button type="submit">Load Table</button>
+    </form>
+
+
+    <!-- User List -->
+    <h2>Users in <?= ucfirst(str_replace('_', ' ', $table)) ?></h2>
+    <div class="table-responsive">
+    <table border="1">
+        <tr>
+            <th>User Name</th>
+            <th>Phone Number</th>
+            <th>Password</th>
+            <th>Email</th>
+        </tr>
+        <?php foreach ($users as $user): ?>
+        <tr>
+            <td><?= $user['User_name'] ?></td>
+            <td><?= $user['Phone_number'] ?></td>
+            <td><?= $user['Password'] ?></td>
+            <td><?= $user['Email'] ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
         </div>
+
+    <!-- Register User Form -->
+    <h2>Register New User</h2>
+    <form method="POST">
+        <input type="hidden" name="table" value="<?= $table ?>">
+        <label for="user_name">User Name:</label>
+        <input type="text" name="user_name" required><br>
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" name="phone_number" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        <button type="submit" name="register">Register</button>
+    </form>
+
+    <!-- Update User Form (Hidden by Default) -->
+    <h2>Update User</h2>
+    <form method="POST" id="updateForm" style="display:none;">
+        <input type="hidden" name="table" value="<?= $table ?>">
+        <input type="hidden" name="user_name" id="update_user_name">
+        <label for="update_phone_number">Phone Number:</label>
+        <input type="text" name="phone_number" id="update_phone_number" required><br>
+        <label for="update_password">Password:</label>
+        <input type="password" name="password" id="update_password" required><br>
+        <label for="update_email">Email:</label>
+        <input type="email" name="email" id="update_email" required><br>
+        <button type="submit" name="update">Update</button>
+    </form>
+
+ 
             </div>
+        </div>
         <!-- Jobs End -->
 
 

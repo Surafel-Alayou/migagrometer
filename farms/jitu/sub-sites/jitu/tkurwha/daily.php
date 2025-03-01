@@ -16,7 +16,7 @@ try {
 
     // SQL query to get all available months and years with data
     $handle = $link->prepare('SELECT MONTH(Record_date) AS month, YEAR(Record_date) AS year 
-                          FROM agriceft_beha 
+                          FROM jitu_jitu_tkurwha 
                           GROUP BY YEAR(Record_date), MONTH(Record_date) 
                           ORDER BY YEAR(Record_date) DESC, MONTH(Record_date) DESC');
     $handle->execute();
@@ -29,7 +29,7 @@ try {
 
         // SQL query to get daily precipitation data for the selected month and year
         $handle = $link->prepare('SELECT DAY(Record_date) AS day, SUM(Precipitation) AS totalPrecipitation 
-                                  FROM agriceft_beha 
+                                  FROM jitu_jitu_tkurwha 
                                   WHERE MONTH(Record_date) = :month AND YEAR(Record_date) = :year
                                   GROUP BY DAY(Record_date) ORDER BY DAY(Record_date)');
         $handle->bindParam(':month', $month, \PDO::PARAM_INT);
