@@ -60,14 +60,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Bishoftu</h5>
-                                            <a href="goma-1/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/jitu/bishoftu/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/jitu/bishoftu/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/jitu/bishoftu/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                            <a class="btn btn-primary" href="sub-sites/jitu/bishoftu/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,14 +77,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Koka</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/jitu/koka/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/jitu/koka/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/jitu/koka/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/jitu/koka/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,14 +94,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Holeta</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/jitu/holeta/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/jitu/holeta/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/jitu/holeta/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/jitu/holeta/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -111,14 +111,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Tkurwha</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/jitu/tkurwha/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/jitu/tkurwha/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/jitu/tkurwha/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/jitu/tkurwha/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>

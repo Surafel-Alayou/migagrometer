@@ -60,14 +60,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Farm-01</h5>
-                                            <a href="goma-1/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/bebeka/farm-01/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-01/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-01/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                            <a class="btn btn-primary" href="sub-sites/bebeka/farm-01/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,14 +77,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Farm-02</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/bebeka/farm-02/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-02/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-02/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/bebeka/farm-02/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,14 +94,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Farm-03</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/bebeka/farm-03/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-03/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-03/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/bebeka/farm-03/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -111,14 +111,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Farm-04</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/bebeka/farm-04/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-04/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-04/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/bebeka/farm-04/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -128,14 +128,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Farm-05</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/bebeka/farm-05/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-05/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/bebeka/farm-05/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/bebeka/farm-05/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>

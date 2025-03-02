@@ -1,15 +1,43 @@
-<?php session_start();
- ?>
- <!DOCTYPE html>
+<?php
+session_start();
+
+// Include the database connection file
+include("php/Connection.php");
+
+// Check if the user is logged in as an admin
+if (!isset($_SESSION['username'])) {
+    // Redirect to the admin login page if not logged in
+    header("Location: admin-log-in.php");
+    exit();
+}
+
+// Check if the logged-in user is in the Admins table
+$username = $_SESSION['username'];
+$sql_check_admin = "SELECT * FROM Admins WHERE user_name = ?";
+$stmt_check_admin = $connection->prepare($sql_check_admin);
+$stmt_check_admin->bind_param('s', $username);
+$stmt_check_admin->execute();
+$result_check_admin = $stmt_check_admin->get_result();
+
+if ($result_check_admin->num_rows === 0) {
+    // User is not an admin, redirect to the admin login page
+    header("Location: admin-login.php");
+    exit();
+}
+
+$stmt_check_admin->close();
+?>
+
+<!DOCTYPE html>
 <html lang="">
 <head>
   <title>agrometclub</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body id="top">
 
 <!--START OF HEADER-->
@@ -45,71 +73,67 @@
         </ul>
     </nav>
 </header>
-
 </div>
 <!--END OF HEADER-->
 
-  <!-- Jobs Start -->
-  <div class="container-xxl py-5">
-  <div class="center" >
+<!-- Jobs Start -->
+<div class="container-xxl py-5">
+  <div class="center">
       <h6 class="heading font-x2">Register user</h6>
-    </div>
-            <div class="container">
-            <?php
-// Include the database connection file
-include("php/Connection.php");
+  </div>
+  <div class="container">
+    <?php
+    // Handle form submissions
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['register'])) {
+            // Register a new user
+            $table = $_POST['table'];
+            $user_name = $_POST['user_name'];
+            $phone_number = $_POST['phone_number'];
+            $password = $_POST['password'];
+            $allowed_farm = $_POST['allowed_farm'];
 
-// Handle form submissions
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['register'])) {
-        // Register a new user
-        $table = $_POST['table'];
-        $user_name = $_POST['user_name'];
-        $phone_number = $_POST['phone_number'];
-        $password = $_POST['password'];
-        $allowed_farm = $_POST['allowed_farm'];
-
-        $sql = "INSERT INTO $table (User_name, Phone_number, Password, Allowed_farm) VALUES (?, ?, ?, ?)";
-        $stmt = $connection->prepare($sql);
-        $stmt->bind_param("ssss", $user_name, $phone_number, $password, $allowed_farm);
-        $stmt->execute();
-        $stmt->close();
+            $sql = "INSERT INTO $table (User_name, Phone_number, Password, Allowed_farm) VALUES (?, ?, ?, ?)";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param("ssss", $user_name, $phone_number, $password, $allowed_farm);
+            $stmt->execute();
+            $stmt->close();
+        }
     }
-}
 
-// Fetch users from the selected table
-$table = $_GET['table'] ?? 'registered'; // Default table
-$sql = "SELECT * FROM $table";
-$result = $connection->query($sql);
-$users = [];
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $users[] = $row;
+    // Fetch users from the selected table
+    $table = $_GET['table'] ?? 'registered'; // Default table
+    $sql = "SELECT * FROM $table";
+    $result = $connection->query($sql);
+    $users = [];
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $users[] = $row;
+        }
+        $result->free();
     }
-    $result->free();
-}
-?>
+    ?>
 
     <!-- User List -->
     <h2>Existing Users</h2>
     <div class="table-responsive">
-    <table border="1">
-        <tr>
-            <th>User Name</th>
-            <th>Phone Number</th>
-            <th>Password</th>
-            <th>Allowed Farm</th>
-        </tr>
-        <?php foreach ($users as $user): ?>
-        <tr>
-            <td><?= $user['User_name'] ?></td>
-            <td><?= $user['Phone_number'] ?></td>
-            <td><?= $user['Password'] ?></td>
-            <td><?= $user['Allowed_farm'] ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-        </div>
+        <table border="1">
+            <tr>
+                <th>User Name</th>
+                <th>Phone Number</th>
+                <th>Password</th>
+                <th>Allowed Farm</th>
+            </tr>
+            <?php foreach ($users as $user): ?>
+            <tr>
+                <td><?= $user['User_name'] ?></td>
+                <td><?= $user['Phone_number'] ?></td>
+                <td><?= $user['Password'] ?></td>
+                <td><?= $user['Allowed_farm'] ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
 
     <!-- Register User Form -->
     <h2>Register New User</h2>
@@ -122,8 +146,8 @@ if ($result) {
         <label for="password">Password:</label>
         <input type="password" name="password" required><br>
         <label for="allowed_farm">Allowed Farm:</label>
-                        <select name="allowed_farm" required>
-                        <option value="agriceft_beha">Agriceft-Beha</option>
+        <select name="allowed_farm" required>
+        <option value="agriceft_beha">Agriceft-Beha</option>
     <option value="agriceft_duyina_unit_01">Agriceft-Duyina-Unit-01</option>
     <option value="agriceft_duyina_unit_02">Agriceft-Duyina-Unit-02</option>
     <option value="agriceft_duyina_unit_03">Agriceft-Duyina-Unit-03</option>
@@ -163,18 +187,16 @@ if ($result) {
     <option value="horizon_sentu_central">Horizon-Sentu-Central</option>
     <option value="horizon_sentu_gijeb">Horizon-Sentu-Gijeb</option>
     <option value="horizon_sentu_tenebo">Horizon-Sentu-Tenebo</option>
-    <option value="jitu_bishoftu">Jitu-Bishoftu</option>
-    <option value="jitu_holeta">Jitu-Holeta</option>
-    <option value="jitu_koka">Jitu-Koka</option>
-    <option value="jitu_tkurwuha">Jitu-Tkurwuha</option>
-                        </select>
+    <option value="jitu_jitu_bishoftu">Jitu-Bishoftu</option>
+    <option value="jitu_jitu_holeta">Jitu-Holeta</option>
+    <option value="jitu_jitu_koka">Jitu-Koka</option>
+    <option value="jitu_jitu_tkurwuha">Jitu-Tkurwuha</option>
+        </select>
         <button class="btn btn-primary" type="submit" name="register">Register</button>
     </form>
- 
-            </div>
-        </div>
-        <!-- Jobs End -->
-
+  </div>
+</div>
+<!-- Jobs End -->
 
 <!--PAGE FOOTER START-->
 <div class="wrapper row4">
@@ -223,14 +245,13 @@ if ($result) {
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
 <script>
-        function openUpdateForm(user_name, phone_number, password, allowed_farm) {
-            document.getElementById('updateForm').style.display = 'block';
-            document.getElementById('update_user_name').value = user_name;
-            document.getElementById('update_phone_number').value = phone_number;
-            document.getElementById('update_password').value = password;
-            document.getElementById('update_allowed_farm').value = allowed_farm;
-        }
-    </script>
-
+    function openUpdateForm(user_name, phone_number, password, allowed_farm) {
+        document.getElementById('updateForm').style.display = 'block';
+        document.getElementById('update_user_name').value = user_name;
+        document.getElementById('update_phone_number').value = phone_number;
+        document.getElementById('update_password').value = password;
+        document.getElementById('update_allowed_farm').value = allowed_farm;
+    }
+</script>
 </body>
 </html>

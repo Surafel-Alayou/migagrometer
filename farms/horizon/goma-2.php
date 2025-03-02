@@ -60,14 +60,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Goma-2</h5>
-                                            <a href="goma-1/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/goma-2/goma-2/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/goma-2/goma-2/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/goma-2/goma-2/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                            <a class="btn btn-primary" href="sub-sites/goma-2/goma-2/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>

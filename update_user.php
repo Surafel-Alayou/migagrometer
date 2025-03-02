@@ -133,8 +133,7 @@ if ($result) {
         <input type="password" name="password" id="update_password" required><br>
         <label for="allowed_farm">Allowed Farm:</label>
                         <select name="allowed_farm" id="update_allowed_farm" required>
-                        <option value="agriceft_beha">Agriceft-Beha</option>
-    <option value="agriceft_duyina_unit_01">Agriceft-Duyina-Unit-01</option>
+                        <option value="agriceft_duyina_unit_01">Agriceft-Duyina-Unit-01</option>
     <option value="agriceft_duyina_unit_02">Agriceft-Duyina-Unit-02</option>
     <option value="agriceft_duyina_unit_03">Agriceft-Duyina-Unit-03</option>
     <option value="agriceft_duyina_unit_04">Agriceft-Duyina-Unit-04</option>
@@ -173,10 +172,10 @@ if ($result) {
     <option value="horizon_sentu_central">Horizon-Sentu-Central</option>
     <option value="horizon_sentu_gijeb">Horizon-Sentu-Gijeb</option>
     <option value="horizon_sentu_tenebo">Horizon-Sentu-Tenebo</option>
-    <option value="jitu_bishoftu">Jitu-Bishoftu</option>
-    <option value="jitu_holeta">Jitu-Holeta</option>
-    <option value="jitu_koka">Jitu-Koka</option>
-    <option value="jitu_tkurwuha">Jitu-Tkurwuha</option>
+    <option value="jitu_jitu_bishoftu">Jitu-Bishoftu</option>
+    <option value="jitu_jitu_holeta">Jitu-Holeta</option>
+    <option value="jitu_jitu_koka">Jitu-Koka</option>
+    <option value="jitu_jitu_tkurwuha">Jitu-Tkurwuha</option>
                         </select>
         <button class="btn btn-primary" type="submit" name="update">Update</button>
     </form>

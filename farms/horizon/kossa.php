@@ -60,14 +60,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Algie</h5>
-                                            <a href="goma-1/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="goma-1/.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/kossa/algie/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/kossa/algie/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/kossa/algie/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                            <a class="btn btn-primary" href="sub-sites/kossa/algie/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,14 +77,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Dembi</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/kossa/dembi/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/kossa/dembi/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/kossa/dembi/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/kossa/dembi/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,14 +94,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Gurumu</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/kossa/gurumu/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/kossa/gurumu/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/kossa/gurumu/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/kossa/gurumu/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>
@@ -111,14 +111,14 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         <div class="text-start">
                                             <h5 class="mb-3"><i class="fa fa-map-marker-alt me-2"></i>Office</h5>
-                                            <a href="daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
-                                            <a href="monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
-                                            <a href="yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
+                                            <a href="sub-sites/kossa/office/daily.php"><i class="fa fa-external-link me-2"></i>Daily Precipitation Data</a><br>
+                                            <a href="sub-sites/kossa/office/monthly.php"><i class="fa fa-external-link me-2"></i>Monthly Precipitation Data</a><br>
+                                            <a href="sub-sites/kossa/office/yearly.php"><i class="fa fa-external-link me-2"></i>Yearly Precipitation Data</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="insert-data.php">Insert Data</a>
+                                        <a class="btn btn-primary" href="sub-sites/kossa/office/insert-data.php">Insert Data</a>
                                         </div>
                                     </div>
                                 </div>

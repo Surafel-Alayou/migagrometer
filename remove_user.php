@@ -1,4 +1,33 @@
-<?php session_start(); ?>
+<?php
+session_start();
+
+// Include the database connection file
+include("php/Connection.php");
+
+// Check if the user is logged in as an admin
+if (!isset($_SESSION['username'])) {
+    // Redirect to the admin login page if not logged in
+    header("Location: admin-log-in.php");
+    exit();
+}
+
+// Check if the logged-in user is in the Admins table
+$username = $_SESSION['username'];
+$sql_check_admin = "SELECT * FROM Admins WHERE user_name = ?";
+$stmt_check_admin = $connection->prepare($sql_check_admin);
+$stmt_check_admin->bind_param('s', $username);
+$stmt_check_admin->execute();
+$result_check_admin = $stmt_check_admin->get_result();
+
+if ($result_check_admin->num_rows === 0) {
+    // User is not an admin, redirect to the admin login page
+    header("Location: admin-login.php");
+    exit();
+}
+
+$stmt_check_admin->close();
+?>
+
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -51,73 +80,70 @@
 <div class="container-xxl py-5">
   <div class="center">
       <h6 class="heading font-x2">Remove user</h6>
-    </div>
-    <div class="container">
-        <?php
-        // Include the database connection file
-        include("php/Connection.php");
+  </div>
+  <div class="container">
+    <?php
+    // Handle form submissions
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['remove'])) {
+            // Remove a user
+            $table = $_POST['table'];
+            $user_name = $_POST['user_name'];
 
-        // Handle form submissions
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['remove'])) {
-                // Remove a user
-                $table = $_POST['table'];
-                $user_name = $_POST['user_name'];
-
-                $sql = "DELETE FROM $table WHERE User_name = ?";
-                $stmt = $connection->prepare($sql);
-                $stmt->bind_param("s", $user_name);
-                $stmt->execute();
-                $stmt->close();
-            }
+            $sql = "DELETE FROM $table WHERE User_name = ?";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param("s", $user_name);
+            $stmt->execute();
+            $stmt->close();
         }
+    }
 
-        // Fetch users from the selected table
-        $table = $_GET['table'] ?? 'registered'; // Default table
-        $sql = "SELECT * FROM $table";
-        $result = $connection->query($sql);
-        $users = [];
-        if ($result) {
-            while ($row = $result->fetch_assoc()) {
-                $users[] = $row;
-            }
-            $result->free();
+    // Fetch users from the selected table
+    $table = $_GET['table'] ?? 'registered'; // Default table
+    $sql = "SELECT * FROM $table";
+    $result = $connection->query($sql);
+    $users = [];
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $users[] = $row;
         }
-        ?>
+        $result->free();
+    }
+    ?>
 
-       <!-- User List -->
-<h2>Existing Users</h2>
-<div class="table-responsive"> <!-- Add this div to make the table responsive -->
-    <table> <!-- Add Bootstrap table classes -->
-        <thead>
-            <tr>
-                <th>User Name</th>
-                <th>Phone Number</th>
-                <th>Password</th>
-                <th>Allowed Farm</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($users as $user): ?>
-            <tr>
-                <td><?= $user['User_name'] ?></td>
-                <td><?= $user['Phone_number'] ?></td>
-                <td><?= $user['Password'] ?></td>
-                <td><?= $user['Allowed_farm'] ?></td>
-                <td>
-                    <form method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to remove this user?');">
-                        <input type="hidden" name="table" value="<?= $table ?>">
-                        <input type="hidden" name="user_name" value="<?= $user['User_name'] ?>">
-                        <button class="btn btn-primary" style="background-color:rgb(235, 78, 67);" type="submit" name="remove">Remove</button>
-                    </form>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
+    <!-- User List -->
+    <h2>Existing Users</h2>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Phone Number</th>
+                    <th>Password</th>
+                    <th>Allowed Farm</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user): ?>
+                <tr>
+                    <td><?= $user['User_name'] ?></td>
+                    <td><?= $user['Phone_number'] ?></td>
+                    <td><?= $user['Password'] ?></td>
+                    <td><?= $user['Allowed_farm'] ?></td>
+                    <td>
+                        <form method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to remove this user?');">
+                            <input type="hidden" name="table" value="<?= $table ?>">
+                            <input type="hidden" name="user_name" value="<?= $user['User_name'] ?>">
+                            <button class="btn btn-danger" style="background-color: #f24235;" type="submit" name="remove">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
+  </div>
 </div>
 <!-- Jobs End -->
 
@@ -176,6 +202,5 @@
         document.getElementById('update_allowed_farm').value = allowed_farm;
     }
 </script>
-
 </body>
 </html>
