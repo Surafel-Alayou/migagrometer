@@ -172,18 +172,33 @@ function downloadCSV(year, dataPoints, monthNames) {
 <body id="top">
 <div class="wrapper row1">
 <header id="header" class="hoc clear">
-    <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px;"> 
+    <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px auto;"> 
         <a href="../../../../../index.php"><img src="../../../../../images/demo/MIG-Logo2.jpg" alt=""></a>
     </div>
     <nav id="mainav" class="fl_right"> 
         <ul class="clear">
             <li class="active"><a href="../../../../../index.php">Home</a></li>
             <li>
-                <a href="#">Laboratories <i class="fas fa-chevron-down"></i></a>
+                <a href="#">Farms <i class="fas fa-chevron-down"></i></a>
                 <ul>
-                    <li><a href="AMSE.php">Advanced materials and solar energy</a></li>
+                    <li><a href="../../../../horizon.php">Horizon</a></li>
+                    <li><a href="../../../../agriceft.php">Agriceft</a></li>
+                    <li><a href="../../../../elfora.php">Elfora</a></li>
+                    <li><a href="../../../../jitu.php">Jitu</a></li>
                 </ul>
             </li>
+            <?php if (isset($_SESSION['username'])) { ?>
+            <li>
+                <a><?php echo $_SESSION['username']; ?> <i class="fas fa-chevron-down"></i></a>
+                <ul>
+                    <li><a href="../../../../../log-out.php">Log Out</a></li>
+                </ul>
+            </li>
+            <?php } else { ?>
+            <li>
+                <a href="../../../../../log-in.php">Log in</a>
+            </li>
+            <?php } ?>
         </ul>
     </nav>
 </header>
