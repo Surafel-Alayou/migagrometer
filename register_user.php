@@ -192,6 +192,7 @@ $stmt_check_admin->close();
     <option value="jitu_jitu_koka">Jitu-Koka</option>
     <option value="jitu_jitu_tkurwuha">Jitu-Tkurwuha</option>
         </select>
+        <br>
         <button class="btn btn-primary" type="submit" name="register">Register</button>
     </form>
   </div>

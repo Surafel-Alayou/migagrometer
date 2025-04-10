@@ -214,43 +214,45 @@ foreach ($allDataPoints as $entry) {
 }
 ?>
 
+<!--PAGE FOOTER START-->
 <div class="wrapper row4">
   <footer id="footer" class="hoc clear"> 
     <div class="one_quarter first">
-      <h6 class="heading">Working days & hours</h6>
-      <ul class="nospace linklist">
-        <li>Monday - Friday</li>
-        <li>Morning 8:00 AM to 12:00 AM </li>
-        <li>Afternoon 2:00 PM to 5:00 PM</li>
-    </ul>
+      <h6 class="heading">Our Company</h6>
+      <p>Midroc Investment Group is a group of Sheikh Mohammed Hussien Ali Al-Amoudi’s companies, mainly engaged in agriculture, agro-processing, manufaturing, mining, hotel, resort, construction, real-estate and commercial endeavors.</p>
   </div>
   
   <div class="one_quarter">
-    <h6 class="heading">Closing days</h6>
-    <ul class="nospace linklist">
-      <li>
-        <article>
-          <p class="nospace btmspace-10">Saturday - Sunday</p>
-        </article>
-      </li>
+    <h6 class="heading">Quick Links</h6>
+    <ul class="nospace linklist contact btmspace-30">
+      <li><i class="fa fa-external-link me-2"></i><a href="../../../../../farms.php" style="color: white;">Farms</a></li>
+      <li><i class="fa fa-external-link me-2"></i><a href="https://www.midrocinvestmentgroup.com/" style="color: white;">Main Site</a></li>
+      </ul>
+  </div>
+
+  <div class="one_quarter ">
+    <h6 class="heading">Contact US</h6>
+    <ul class="nospace linklist contact btmspace-30">
+      <li><a href="tel:+251115549791" style="color: white;"><i class="fas fa-phone"></i> +251 11 554 9791/95</a></li>
+      <li><a href="mailto:migpr@midrocinvestmentgroup.com" style="color: white;"><i class="fa fa-envelope"></i>migpr@midrocinvestmentgroup.com</a></li>
+      <li><a href="https://web.facebook.com/profile.php?id=100076612531374" style="color: white;"><i class="fab fa-facebook-f"></i>Facebook</a></li>
     </ul>
   </div>
+
   <div class="one_quarter ">
-    <h6 class="heading">Address</h6>
-    <ul class="nospace linklist contact btmspace-30">
-      <li><i class="fas fa-map-marker-alt"></i>
-        <address>
-          Street Name &amp; Number, Town, Postcode/Zip
-        </address>
-      </li>
-      <li><i class="fas fa-phone"></i> +00 (123) 456 7890</li>
-      <li><i class="far fa-envelope"></i> info@domain.com</li>
-    </ul>
+  <h6 class="heading">Address</h6>
+        <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5527931047286!2d38.756298873672975!3d9.013231689238351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85bf6a52d413%3A0x36426cf036cf580d!2zTmFuaSBCdWlsZGluZyB8IFN0YWRpdW0gfCDhipPhipIg4YiF4YqV4Yy7IHwg4Yi14Ymz4Yu14Yuo4Yid!5e0!3m2!1sen!2set!4v1738511669034!5m2!1sen!2set" width="100%" frameborder="0" style="border:0; border-radius: 5px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15); height: 200px;" allowfullscreen=""></iframe>
+        </div>
   </div>
 </footer>
 </div>
 <div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <p>Copyright &copy; 2024 - All Rights Reserved - <a href="https://www.midrocinvestmentgroup.com/">MIDROC Investment Group</a></p>
+  </div>
 </div>
+<!--PAGE FOOTER END-->
 <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <script src="../../../../../layout/scripts/jquery.min.js"></script>
