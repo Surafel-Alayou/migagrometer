@@ -6,6 +6,8 @@
   <title>agrometclub</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta property="og:image" content="../../images/logo.png" />
+  <link href="../../images/logo.png" rel="icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -15,29 +17,30 @@
 <div class="wrapper row1">
 <header id="header" class="hoc clear">
     <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px auto;"> 
-        <a href="index.php"><img src="../../images/demo/MIG-Logo2.jpg" alt=""></a>
+        <a href="../../index.php"><img src="../../images/demo/MIG-Logo2.jpg" alt=""></a>
     </div>
     <nav id="mainav" class="fl_right"> 
         <ul class="clear">
-            <li class="active"><a href="index.php">Home</a></li>
+            <li class="active"><a href="../../index.php">Home</a></li>
             <li>
                 <a href="#">Farms <i class="fas fa-chevron-down"></i></a>
                 <ul>
-                    <li><a href="AMSE.php">Elfora</a></li>
-                    <li><a href="pages/full-width.html">Awash</a></li>
-                    <li><a href="pages/sidebar-left.html">Gojam</a></li>
+                    <li><a href="../horizon.php">Horizon</a></li>
+                    <li><a href="../agriceft.php">Agriceft</a></li>
+                    <li><a href="../elfora.php">Elfora</a></li>
+                    <li><a href="../jitu.php">Jitu</a></li>
                 </ul>
             </li>
             <?php if (isset($_SESSION['username'])) { ?>
             <li>
                 <a><?php echo $_SESSION['username']; ?> <i class="fas fa-chevron-down"></i></a>
                 <ul>
-                    <li><a href="log-out.php">Log Out</a></li>
+                    <li><a href="../../log-out.php">Log Out</a></li>
                 </ul>
             </li>
             <?php } else { ?>
             <li>
-                <a href="log-in.php">Log in</a>
+                <a href="../../log-in.php">Log in</a>
             </li>
             <?php } ?>
         </ul>

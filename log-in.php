@@ -4,13 +4,47 @@
   <title>Log in</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta property="og:image" content="images/logo.png" />
+  <link href="images/logo.png" rel="icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body id="top">
 
-  <!--START OF HEADER-->
+<?php 
+session_start();
+require_once("php/Connection.php");
+$errorMessage = "";
+
+// Get the referring URL if it exists, otherwise default to index.php
+$redirect_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
+
+// Don't redirect back to login page if that's where they came from
+if (strpos($redirect_url, 'log-in.php') !== false) {
+    $redirect_url = 'index.php';
+}
+
+if (isset($_POST['submit'])) {
+    $user_name = $_POST['username'];
+    $password = $_POST['password'];
+    $sql = 'SELECT * FROM Registered WHERE User_name="' . $user_name . '" AND Password="' . $password . '"';
+    $registered = mysqli_query($connection, $sql);
+
+    if (mysqli_num_rows($registered) > 0) {
+        $_SESSION['username'] = $user_name;
+        
+        // Redirect to the URL passed in the form or to index.php if not set
+        $redirect = isset($_POST['redirect_url']) ? $_POST['redirect_url'] : 'index.php';
+        header("location:".$redirect);
+        exit();
+    } else {
+        $errorMessage = "Incorrect username or password.";
+    }
+}
+?>
+
+<!--START OF HEADER-->
 <div class="wrapper row1">
 <header id="header" class="hoc clear">
     <div id="logo" class="fl_left" style="width: 200px; padding:0; margin: 10px auto;"> 
@@ -40,39 +74,19 @@
         </ul>
     </nav>
 </header>
-
 </div>
 <!--END OF HEADER-->
 
-
-  <div class="wrapper row3">
+<div class="wrapper row3">
     <section class="hoc container clear">
-      <?php 
-      session_start();
-      require_once("php/Connection.php");
-      $errorMessage = "";
-
-      if (isset($_POST['submit'])) {
-        $user_name = $_POST['username'];
-        $password = $_POST['password'];
-        $sql = 'SELECT * FROM Registered WHERE User_name="' . $user_name . '" AND Password="' . $password . '"';
-        $registered = mysqli_query($connection, $sql);
-
-        if (mysqli_num_rows($registered) > 0) {
-          $_SESSION['username'] = $user_name;
-          header("location:index.php");
-          exit();
-        } else {
-          $errorMessage = "Incorrect username or password.";
-        }
-      }
-      ?> 
       <form action="#" method="post">
         <div class="one_third first">
           <label for="username">User name </label>
           <input type="text" name="username" id="name" value="" size="22" required>
           <label for="password">Password</label>
           <input type="password" name="password" id="email" value="" size="22" required>
+          <!-- Add this hidden field to store the redirect URL -->
+          <input type="hidden" name="redirect_url" value="<?php echo htmlspecialchars($redirect_url); ?>">
           <input class="btn  mt-3 mb-2" type="submit" name="submit" value="Log in" style="padding: 7px;">
           
           <?php if (!empty($errorMessage)) { ?>
@@ -85,14 +99,14 @@
         </div>
       </form>
     </section>
-  </div>
+</div>
 
- <!--PAGE FOOTER START-->
+<!--PAGE FOOTER START-->
 <div class="wrapper row4">
   <footer id="footer" class="hoc clear"> 
     <div class="one_quarter first">
       <h6 class="heading">Our Company</h6>
-      <p>Midroc Investment Group is a group of Sheikh Mohammed Hussien Ali Al-Amoudi’s companies, mainly engaged in agriculture, agro-processing, manufaturing, mining, hotel, resort, construction, real-estate and commercial endeavors.</p>
+      <p>Midroc Investment Group is a group of Sheikh Mohammed Hussien Ali Al-Amoudi's companies, mainly engaged in agriculture, agro-processing, manufaturing, mining, hotel, resort, construction, real-estate and commercial endeavors.</p>
   </div>
   
   <div class="one_quarter">

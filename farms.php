@@ -6,6 +6,8 @@
   <title>agrometclub</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta property="og:image" content="images/logo.png" />
+  <link href="images/logo.png" rel="icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -63,10 +65,10 @@
                             <div class="job-item p-4 mb-4 tt-0">
                                 <div class="row g-4">
                                     <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/elfora-farm.jpg" alt="">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/coffee.jpg" alt="">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Horizon</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer massa lacus, dictum id quam et, fringilla accumsan enim. Nam venenatis est eget arcu pulvinar volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla faucibus purus non nulla imperdiet cursus. In hac habitasse platea dictumst.  </p>
+                                            <p>Cultivate premium coffee and grow vital oilseeds to support Ethiopia’s edible oil supply. Our large-scale farms use sustainable, modern practices to boost productivity and quality.</p>
                                             <a class="btn mr-2 mb-2" href="farms/horizon.php"><i class="fa fa-external-link me-2"></i>Sites</a>
                                         </div>
                                     </div>
@@ -76,10 +78,10 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/coffee-farm.jpg" alt="">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/flower.jpg" alt="">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Agriceft</h5>
-                                            <p>Nulla facilisi. Curabitur gravida risus nibh, eleifend eleifend sem tincidunt a. Phasellus faucibus felis arcu, vitae facilisis dolor semper sed. Vestibulum sed purus quis sem dignissim congue sed nec lectus. Suspendisse potenti. Maecenas tincidunt, tellus a tincidunt facilisis, sem nisl congue lorem, id accumsan ante lorem ut nibh. </p>
+                                            <p>Grow coffee, tea, cereals, pulses, and spices. Our crops supply local and international markets, backed by efficient irrigation and processing systems to ensure quality and sustainability. </p>
                                             <a class="btn  mr-2 mb-2" href="farms/agriceft.php"><i class="fa fa-external-link me-2"></i>Sites</a>
                                         </div>
                                         </div>
@@ -92,7 +94,7 @@
                                         <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/elfora-farm.jpg" alt="">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Elfora</h5>
-                                            <p>Nulla facilisi. Curabitur gravida risus nibh, eleifend eleifend sem tincidunt a. Phasellus faucibus felis arcu, vitae facilisis dolor semper sed. Vestibulum sed purus quis sem dignissim congue sed nec lectus. Suspendisse potenti. Maecenas tincidunt, tellus a tincidunt facilisis, sem nisl congue lorem, id accumsan ante lorem ut nibh. </p>
+                                            <p>Grow a range of crops including maize, haricot beans, soybeans, tomatoes, onions, carrots, avocados, and papayas. Using modern irrigation and farming techniques, we ensure year-round production to support food security and agro-processing in Ethiopia.</p>
                                             <a class="btn  mr-2 mb-2" href="farms/elfora.php"><i class="fa fa-external-link me-2"></i>Sites</a>
                                         </div>
                                         </div>
@@ -102,10 +104,10 @@
                                 <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/coffee-farm.jpg" alt="">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="images/demo/potato.jpg" alt="">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Jitu</h5>
-                                            <p>Nulla facilisi. Curabitur gravida risus nibh, eleifend eleifend sem tincidunt a. Phasellus faucibus felis arcu, vitae facilisis dolor semper sed. Vestibulum sed purus quis sem dignissim congue sed nec lectus. Suspendisse potenti. Maecenas tincidunt, tellus a tincidunt facilisis, sem nisl congue lorem, id accumsan ante lorem ut nibh. </p>
+                                            <p>Specialize in high-quality fruits and vegetables for export and local markets. With advanced greenhouse and field systems, we deliver fresh, reliable produce that meets international standards.</p>
                                             <a class="btn  mr-2 mb-2" href="farms/jitu.php"><i class="fa fa-external-link me-2"></i>Sites</a>
                                         </div>
                                         </div>
