@@ -48,5 +48,3 @@ The platform was developed to support the digital management of agricultural pre
 **Developed by:** Surafel A. Tadesse
 
 **Organisation:** MIDROC Investment Group
-
-**Repository:** [MIG AgroMet on GitHub](https://github.com/Surafel-Alayou/migagrometer)
