@@ -26,19 +26,6 @@ By digitising precipitation data collection, MIG AgroMet helps improve data acce
 - **Framework / UI:** Bootstrap
 - **Additional tools:** Telegram Bot integration
 
-## Project Structure
-
-The repository contains the following main components:
-
-- `farms/` – Farm-specific pages and site information.
-- `php/` – Database connection and supporting PHP functionality.
-- `layout/` – Website stylesheets and scripts.
-- `images/` – Website images and visual assets.
-- `migagrometer.sql` – Database structure and related SQL data.
-- `admin.php` – Administrative interface.
-- `insert-data.php` – Precipitation data entry and updating functionality.
-- `register_user.php` – User registration functionality.
-
 ## Purpose and Impact
 
 The platform was developed to support the digital management of agricultural precipitation records across MIDROC Investment Group's farm operations in Ethiopia. By providing a structured approach to collecting and managing site-specific precipitation data, it supports more organised agricultural monitoring and provides a foundation for data-informed operational decisions.
